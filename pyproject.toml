@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpdf"
+version = "0.1.0"
+description = "A local Windows PDF reader and annotation editor"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "PyQt6>=6.8,<7",
+    "PyMuPDF>=1.26,<2",
+    "requests>=2.32.4,<3",
+]
+
+[project.gui-scripts]
+gpdf = "gpdf.app:main"
+
+[project.optional-dependencies]
+build = ["pyinstaller>=6.11,<7"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gpdf*"]
+
+[tool.setuptools.package-data]
+gpdf = ["google_oauth_client.json"]
